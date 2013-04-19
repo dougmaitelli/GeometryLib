@@ -4,12 +4,13 @@ package Geometry;
  *
  * @author dougmaitelli
  */
-public final class LineSegment {
+public class LineSegment extends Line {
 
     private Point p1;
     private Point p2;
 
     public LineSegment(Point p1, Point p2) {
+        super(p1, p2);
         this.p1 = p1;
         this.p2 = p2;
     }

@@ -49,11 +49,10 @@ public class Main {
         matrix.getDeterminant();
 
         Line l1 = new Line(new Point(1, 3), new Point(3, 4));
+        l1.getAngle();
 
         LatLng ll = new LatLng(-29.687166, -51.127223);
         Point pl = ll.toPoint();
         LatLng ll2 = LatLng.fromPoint(pl);
-
-
     }
 }

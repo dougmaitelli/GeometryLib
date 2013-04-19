@@ -89,7 +89,7 @@ public class Rectangle {
     public Position getPointPosition(Point p) {
         Position position = null;
 
-        if (p.getX() >  < r) {
+        /*if (p.getX() >  < r) {
             position = Position.INSIDE;
         }
 
@@ -99,7 +99,7 @@ public class Rectangle {
 
         if (c.distanceFromPoint(p).equals(r)) {
             position = Position.BELONG;
-        }
+        }*/
 
         return position;
     }
@@ -116,8 +116,8 @@ public class Rectangle {
         return getPointPosition(p) == Position.BELONG;
     }
 
-    public Boolean hasPoint(Point p) {
-        return c.distanceFromPoint(p) <= r;
-    }
+    //public Boolean hasPoint(Point p) {
+        //return c.distanceFromPoint(p) <= r;
+    //}
 
 }

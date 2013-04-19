@@ -5,7 +5,7 @@ package Geometry;
  *
  * @author DougM
  */
-public final class Line {
+public class Line {
 
     private Double a;
     private Double b;
@@ -53,15 +53,19 @@ public final class Line {
     public void setB(Number b) {
         this.b = b.doubleValue();
     }
+    
+    public Double getAngle() {
+        return a * 90;
+    }
 
-    public void fromPoint(Number a, Point p) {
+    public final void fromPoint(Number a, Point p) {
         Line s = lineFromPoint(a, p);
         
         this.a = s.getA();
         b = s.getB();
     }
 
-    public void fromPoints(Point p1, Point p2) {
+    public final void fromPoints(Point p1, Point p2) {
         Line s = lineFromPoints(p1, p2);
 
         a = s.getA();
