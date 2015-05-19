@@ -1,8 +1,7 @@
 GeometryLib
 ===========
 
-[![Coverage Status](https://coveralls.io/repos/dougmaitelli/GeometryLib/badge.svg)](https://coveralls.io/r/dougmaitelli/GeometryLib)
-[![Code Climate](https://codeclimate.com/github/dougmaitelli/GeometryLib/badges/gpa.svg)](https://codeclimate.com/github/dougmaitelli/GeometryLib)
+[![Build Status](https://travis-ci.org/dougmaitelli/GeometryLib.svg)](https://travis-ci.org/dougmaitelli/GeometryLib)
 
 Java Library for geometric operations.
 
