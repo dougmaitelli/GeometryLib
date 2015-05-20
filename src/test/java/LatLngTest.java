@@ -12,6 +12,8 @@ public class LatLngTest {
 		LatLng ll = new LatLng(-29.687166, -51.127223);
         Point p1 = ll.toPoint();
         LatLng ll2 = LatLng.fromPoint(p1);
-        Assert.assertEquals(ll, ll2);
+        
+        Assert.assertEquals((double) ll.getLatitude(), (double) ll2.getLatitude(), 0.000001);
+        Assert.assertEquals((double) ll.getLongitude(), (double) ll2.getLongitude(), 0.000001);
 	}
 }
