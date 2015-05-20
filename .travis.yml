@@ -1,4 +1,20 @@
 language: java
 
+env:
+  global:
+   # The next declaration is the encrypted COVERITY_SCAN_TOKEN, created
+   #   via the "travis encrypt" command using the project repo's public key
+   - secure: "QT6iRVhL+Nk+Ie00NlowK/E1jtsRuSYEV2baA0lLVy8UUSGArtz+XgkSw1HVe2T1uqeyMb2po1IE4Mx3eyv3LdIjth77GMio+CGjHHREpKH13NEK5cb89Rq7ZuTmtTxXc5FqwpVG1aQb2zCxFCguGVDvtnUciSpgX1fPciQs8d4lowBjvWKkdQKF/rtY+7hzhq3dgKvcqQABbSdqQXALw+e6Bb8DzWRdH/pw4g9FQUcR9pMgbRgcF5g11TkXF3uWNGD9ZfGfz0GaTZjz86AWqPcqAl1guwdijh9CNmsnw7FbA13UxVCT/aP/8fXHYO5buLT6MWamWSWLFt1YaMBF9jutsJ2p8RAOFnkuPJcazo1fIPxAHAne8cZxHhEvQ8ZQMZQKTiNRbf9kmp6igpGz9QZ8dTnoNo/ZgYBleD8VGJhe+RroEkGd2n/4aPRcpt0D8LAuMrwAwJfoJg9qu96S3PqJFJ4N+A3FSPJzrp9dkTH1oy1EzFPVS8cpBTvfqK3xTOiGb9A89wv/y/GsM8AsGCafS22Hjz43zPaswSPFJl3Ihc8ZDEZhQOIyHK2cJj0pLVPk4oNppKjRoX/f/V8sQJ32moBFeldAGmPV8BtGDoEYFtx8A2ioCSU3snG1Tc5clvBAVnUr8y5Q7mJGQWxkzTK9sF1GgFe26CLjHEkphhw="
+
+addons:
+  coverity_scan:
+    project:
+      name: "dougmaitelli/GeometryLib"
+      description: "Build submitted via Travis CI"
+    notification_email: dougmaitelli@hotmail.com
+    build_command_prepend: "mvn clean"
+    build_command: "mvn -DskipTests=true compile"
+    branch_pattern: coverity_scan
+
 after_success:
 - mvn clean -DTRAVIS_JOB_ID=$TRAVIS_JOB_ID cobertura:cobertura coveralls:report
