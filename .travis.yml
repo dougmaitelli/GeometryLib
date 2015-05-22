@@ -11,7 +11,6 @@ addons:
     project:
       name: "dougmaitelli/GeometryLib"
       description: "Build submitted via Travis CI"
-    notification_email: dougmaitelli@hotmail.com
     build_command_prepend: "mvn clean"
     build_command: "mvn -DskipTests=true compile"
     branch_pattern: master
@@ -34,7 +33,7 @@ deploy:
     secure: $GITPERM
   file:
     - "README.md"
-    - "space"
+    - "*.jar"
   on:
     tags: false
     all_branches: true
