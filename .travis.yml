@@ -3,7 +3,11 @@ language: java
 jdk:
 - oraclejdk7
 
-script: mvn clean -DTRAVIS_JOB_ID=$TRAVIS_JOB_ID package cobertura:cobertura coveralls:report
+before_script:
+- export GIT_TAG=$TRAVIS_BRANCH-1.0.$TRAVIS_BUILD_NUMBER
+- export FINALNAME=GeometryLib-1.0.$GIT_TAG.jar
+
+script: mvn clean -DTRAVIS_JOB_ID=$TRAVIS_JOB_ID package cobertura:cobertura coveralls:report -DfinalName=$FINALNAME
 
 env:
   global:
@@ -21,7 +25,6 @@ addons:
 before_deploy:
   - git config --global user.email "builds@travis-ci.com"
   - git config --global user.name "Travis CI"
-  - export GIT_TAG=$TRAVIS_BRANCH-1.0.$TRAVIS_BUILD_NUMBER
   - git tag $GIT_TAG -a -m "Generated tag from TravisCI for build $TRAVIS_BUILD_NUMBER"
   - git push -q https://$GITPERM@github.com/dougmaitelli/GeometryLib --tags
   - ls -R
@@ -33,7 +36,7 @@ deploy:
     secure: $GITPERM
   file:
     - "README.md"
-    - "target/GeometryLib-1.0.jar"
+    - "target/$FINALNAME"
   on:
     tags: false
     all_branches: true
