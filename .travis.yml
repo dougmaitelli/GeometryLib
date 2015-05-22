@@ -18,8 +18,6 @@ addons:
 after_success:
 - mvn clean -DTRAVIS_JOB_ID=$TRAVIS_JOB_ID cobertura:cobertura coveralls:report
 
-before_install: mvn install -DskipTests=true -DfinalName=GeometryLib-$TRAVIS_TAG
-
 before_deploy:
   - git config --global user.email "builds@travis-ci.com"
   - git config --global user.name "Travis CI"
@@ -35,7 +33,7 @@ deploy:
     secure: $GITPERM
   file:
     - "README.md"
-    - target/GeometryLib-$TRAVIS_TAG.jar
+    - "target/GeometryLib-1.0.jar"
   on:
     tags: false
     all_branches: true
