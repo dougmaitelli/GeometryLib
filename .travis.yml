@@ -5,7 +5,7 @@ jdk:
 
 before_script:
 - export GIT_TAG=$TRAVIS_BRANCH-1.0.$TRAVIS_BUILD_NUMBER
-- export FINALNAME=GeometryLib-1.0.$GIT_TAG.jar
+- export FINALNAME=GeometryLib-$GIT_TAG
 
 script: mvn clean -DTRAVIS_JOB_ID=$TRAVIS_JOB_ID package cobertura:cobertura coveralls:report -DfinalName=$FINALNAME
 
@@ -36,7 +36,7 @@ deploy:
     secure: $GITPERM
   file:
     - "README.md"
-    - "target/$FINALNAME"
+    - "target/$FINALNAME.jar"
   on:
     tags: false
     all_branches: true
