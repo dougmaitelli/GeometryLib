@@ -4,6 +4,7 @@
 	<groupId>GeometryLib</groupId>
 	<artifactId>GeometryLib</artifactId>
 	<version>1.0</version>
+	<packaging>jar</packaging>
 	
 	<properties>
 		<finalName>${project.artifactId}-${project.version}</finalName>
