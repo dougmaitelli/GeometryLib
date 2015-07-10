@@ -1,4 +1,4 @@
-box: wercker/default
+box: mihkels/java8-oracle
 
 build:
   steps:
