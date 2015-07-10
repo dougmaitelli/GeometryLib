@@ -2,10 +2,8 @@ box: wercker/default
 
 build:
   steps:
-    - script:
-      name: Build
-      code: |
-        mvn clean package
+    - xenoterracide/maven:
+        goals: test
   after-steps:
     - wantedly/pretty-slack-notify:
-      webhook_url: $SLACK_WEBHOOK_URL
+        webhook_url: $SLACK_WEBHOOK_URL
