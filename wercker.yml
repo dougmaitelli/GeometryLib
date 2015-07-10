@@ -4,5 +4,5 @@ steps:
   - wantedly/pretty-slack-notify@0.2.10
 
 after-steps:
-    - wantedly/pretty-slack-notify:
-        webhook_url: $SLACK_WEBHOOK_URL
+  - wantedly/pretty-slack-notify:
+    webhook_url: $SLACK_WEBHOOK_URL
