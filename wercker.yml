@@ -1,5 +1,8 @@
 box: wercker/default
 
+steps:
+  - wantedly/pretty-slack-notify@0.2.10
+
 build:
     after-steps:
         - wantedly/pretty-slack-notify:
