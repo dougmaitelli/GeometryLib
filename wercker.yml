@@ -1,4 +1,4 @@
-box: mihkels/java8-oracle
+box: feaster83/java8-oracle
 
 build:
   steps:
