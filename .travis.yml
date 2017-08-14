@@ -13,25 +13,12 @@ script: mvn clean -DTRAVIS_JOB_ID=$TRAVIS_JOB_ID package cobertura:cobertura -Df
 after_success:
   - bash <(curl -s https://codecov.io/bash)
 
-before_deploy:
-  - git config --global user.email "builds@travis-ci.com"
-  - git config --global user.name "Travis CI"
-  - git tag $GIT_TAG -a -m "Generated tag from TravisCI for build $TRAVIS_BUILD_NUMBER"
-  - git push -q https://$GITPERM@github.com/dougmaitelli/GeometryLib --tags
-  - ls -R
-
 deploy:
-  skip_cleanup: true
   provider: releases
-  api_key:
-    secure: $GITPERM
+  api_key: $GITPERM
+  skip_cleanup: true
   file:
     - "README.md"
     - "target/$FINALNAME.jar"
   on:
-    tags: false
-    all_branches: true
-
-branches:
-  except:
-    - /^*-[0-9]/
+    tags: true
