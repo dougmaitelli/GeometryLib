@@ -3,13 +3,9 @@ package Geometry;
 
 import java.util.ArrayList;
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 /**
  *
- * @author Douglas Maitelliaitelli
+ * @author Douglas Maitelli
  */
 public final class Polyline {
 
@@ -42,6 +38,10 @@ public final class Polyline {
 
     public void add(Point p) {
         this.getPoints().add(p);
+    }
+    
+    public Double distanceBetweenPoints(Point p1, Point p2) {
+        return inlineDistanceBetweenPoints(this, p1, p2);
     }
 
     public Integer size() {
