@@ -10,6 +10,12 @@ public class Ellipse {
     private Double radiusX;
     private Double radiusY;
     
+    public Ellipse(Point center, Number radiusX, Number radiusY) {
+    	this.center = center;
+        this.radiusX = radiusX.doubleValue();
+        this.radiusY = radiusY.doubleValue();
+	}
+    
     /**
      * @return the center
      */

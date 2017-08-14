@@ -9,8 +9,8 @@ public final class Circle {
     private Point center;
     private Double radius;
 
-    public Circle(Point c, Number radius) {
-        this.center = c;
+    public Circle(Point center, Number radius) {
+        this.center = center;
         this.radius = radius.doubleValue();
     }
 

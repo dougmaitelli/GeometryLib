@@ -169,7 +169,7 @@ public class Line {
     }
 
     public static Point closestPointOnLine(Line s, Point p) {
-        return s.getIntersectionPoint(s.getParallelFromPoint(p));
+        return s.getIntersectionPoint(s.getPerpendicularFromPoint(p));
     }
 
     public static Line lineFromPoint(Number a, Point p) {
