@@ -2,7 +2,7 @@ package Geometry;
 
 /**
  *
- * @author DougM
+ * @author Douglas Maitelli
  */
 public class Rectangle {
 
@@ -87,21 +87,13 @@ public class Rectangle {
     }
 
     public Position getPointPosition(Point p) {
-        Position position = null;
-
-        /*if (p.getX() >  < r) {
-            position = Position.INSIDE;
-        }
-
-        if (c.distanceFromPoint(p) > r) {
-            position = Position.OUTSIDE;
-        }
-
-        if (c.distanceFromPoint(p).equals(r)) {
-            position = Position.BELONG;
-        }*/
-
-        return position;
+    	if (p.getX() > a.getX() && p.getY() > a.getY() && p.getX() < b.getX() && p.getY() < b.getY()) {
+    		return Position.INSIDE;
+    	} else if (p.getX() < a.getX() || p.getY() < a.getY() || p.getX() > b.getX() || p.getY() > b.getY()) {
+    		return Position.OUTSIDE;
+    	} else {
+    		return Position.BELONG;
+    	}
     }
 
     public Boolean isPointInside(Point p) {
@@ -116,8 +108,8 @@ public class Rectangle {
         return getPointPosition(p) == Position.BELONG;
     }
 
-    //public Boolean hasPoint(Point p) {
-        //return c.distanceFromPoint(p) <= r;
-    //}
+    public Boolean hasPoint(Point p) {
+    	 return isPointOutside(p) || isPointBelong(p);
+    }
 
 }

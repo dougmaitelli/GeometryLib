@@ -1,16 +1,10 @@
 package Geometry;
 
 import java.util.ArrayList;
-import java.util.Collection;
-
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 
 /**
  *
- * @author DougM
+ * @author Douglas Maitelli
  */
 public final class Triangle {
 

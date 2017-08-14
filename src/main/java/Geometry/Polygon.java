@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author DougM
+ * @author Douglas Maitelli
  */
 public final class Polygon {
 

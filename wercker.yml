@@ -1,9 +1,0 @@
-box: feaster83/java8-oracle
-
-build:
-  steps:
-    - xenoterracide/maven:
-        goals: test
-  after-steps:
-    - wantedly/pretty-slack-notify:
-        webhook_url: $SLACK_WEBHOOK_URL

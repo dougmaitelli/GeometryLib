@@ -9,7 +9,7 @@ import java.util.ArrayList;
  */
 /**
  *
- * @author dougmaitelli
+ * @author Douglas Maitelliaitelli
  */
 public final class Polyline {
 

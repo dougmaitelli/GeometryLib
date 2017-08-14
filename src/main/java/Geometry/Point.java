@@ -3,7 +3,7 @@ package Geometry;
 
 /**
  *
- * @author DougM
+ * @author Douglas Maitelli
  */
 public final class Point {
 

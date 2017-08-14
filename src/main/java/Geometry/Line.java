@@ -1,17 +1,13 @@
 package Geometry;
 
-
 /**
  *
- * @author DougM
+ * @author Douglas Maitelli
  */
 public class Line {
 
     private Double a;
     private Double b;
-
-    public Line() {
-    }
 
     public Line(Number a, Number b) {
         this.a = a.doubleValue();
@@ -55,7 +51,7 @@ public class Line {
     }
     
     public Double getAngle() {
-        return a * 90;
+        return a * (double) 90;
     }
 
     public final void fromPoint(Number a, Point p) {
@@ -137,8 +133,7 @@ public class Line {
         String aStr = a != 0 ? a + "x" : "";
         String bStr = b != 0 ? (b < 0 ? (Double)(b * -1) : b).toString() : "";
 
-        String eqStr;
-        eqStr = !aStr.isEmpty() && !bStr.isEmpty() ? aStr + (b > 0 ? " + " : " - ") + bStr : aStr + bStr;
+        String eqStr = !aStr.isEmpty() && !bStr.isEmpty() ? aStr + (b > 0 ? " + " : " - ") + bStr : aStr + bStr;
         eqStr = eqStr.equals("") ? "0" : eqStr;
         return "f(x) = " + eqStr;
     }
@@ -155,8 +150,8 @@ public class Line {
         return Line.closestPointOnLine(this, p);
     }
 
-    public static Double distanceBetweenLines(Line s1, Line s2) {
-        return Line.distanceBetweenLineAndPoint(s1, s2.getPointFromX(0)); //TODO
+    public static Double distanceBetweenLines(Line s1, Line s2, Number x) {
+        return s1.getPointFromX(x).distanceFromPoint(s2.getPointFromX(x));
     }
 
     public static Double distanceBetweenLineAndPoint(Line s, Point p) {
@@ -178,12 +173,7 @@ public class Line {
     }
 
     public static Line lineFromPoint(Number a, Point p) {
-        Line s = new Line();
-
-        s.setA(a);
-        s.setB(a.doubleValue() * (p.getX() * -1) + p.getY());
-
-        return s;
+        return new Line(a, a.doubleValue() * (p.getX() * -1) + p.getY());
     }
 
     public static Line lineFromPoints(Point p1, Point p2) {

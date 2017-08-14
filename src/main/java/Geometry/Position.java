@@ -2,7 +2,7 @@ package Geometry;
 
 /**
  *
- * @author DougM
+ * @author Douglas Maitelli
  */
 public enum Position {
     INSIDE(),

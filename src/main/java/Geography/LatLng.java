@@ -4,7 +4,7 @@ import Geometry.Point;
 
 /**
  * LatLng class
- * @author DougM
+ * @author Douglas Maitelli
  */
 public final class LatLng {
 

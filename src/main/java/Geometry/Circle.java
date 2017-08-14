@@ -1,82 +1,71 @@
 package Geometry;
 
-
 /**
  *
- * @author DougM
+ * @author Douglas Maitelli
  */
 public final class Circle {
 
-    private Point c;
-    private Double r;
+    private Point center;
+    private Double radius;
 
-    public Circle(Point c, Number r) {
-        this.c = c;
-        this.r = r.doubleValue();
+    public Circle(Point c, Number radius) {
+        this.center = c;
+        this.radius = radius.doubleValue();
     }
 
     /**
-     * @return the c
+     * @return the center
      */
-    public Point getC() {
-        return c;
+    public Point getCenter() {
+        return center;
     }
 
     /**
-     * @param c the c to set
+     * @param center the center to set
      */
-    public void setC(Point c) {
-        this.c = c;
+    public void setC(Point center) {
+        this.center = center;
     }
 
     /**
-     * @return the r
+     * @return the radius
      */
-    public Double getR() {
-        return r;
+    public Double getRadius() {
+        return radius;
     }
 
     /**
-     * @param r the r to set
+     * @param radius the radius to set
      */
-    public void setR(Number r) {
-        this.r = r.doubleValue();
+    public void setRadius(Number radius) {
+        this.radius = radius.doubleValue();
     }
 
     public Double getDiameter() {
-        return 2 * r;
+        return 2 * radius;
     }
 
     public Double getArea() {
-        return Math.PI * Math.pow(r, 2);
+        return Math.PI * Math.pow(radius, 2);
     }
 
     public Double getPerimeter() {
-        return 2 * Math.PI * r;
-    }
-
-    public Rope getRope(Line s) {
-        return new Rope(this, s);
+        return 2 * Math.PI * radius;
     }
 
     public Position getLinePosition(Line s) {
-        Position position = null;
+        Double distance = s.distanceFromPoint(center);
 
-        Double distance = s.distanceFromPoint(c);
-
-        if (distance < r) {
-            position = Position.INSIDE;
+        if (distance < radius) {
+            return Position.INSIDE;
+        } else  if (distance > radius) {
+        	return Position.OUTSIDE;
+        } else  if (distance.equals(radius)) {
+        	return Position.BELONG;
         }
 
-        if (distance > r) {
-            position = Position.OUTSIDE;
-        }
-
-        if (distance.equals(r)) {
-            position = Position.BELONG;
-        }
-
-        return position;
+        return null;
     }
 
     public Boolean isLineInside(Line s) {
@@ -92,27 +81,21 @@ public final class Circle {
     }
 
     public Boolean hasLine(Line s) {
-        return s.distanceFromPoint(c) <= r;
+        return s.distanceFromPoint(center) <= radius;
     }
 
     public Position getLineSegmentPosition(LineSegment s) {
-        Position position = null;
+        Double distance = s.distanceFromPoint(center);
 
-        Double distance = s.distanceFromPoint(c);
-
-        if (distance < r) {
-            position = Position.INSIDE;
+        if (distance < radius) {
+        	return Position.INSIDE;
+        } else if (distance > radius) {
+        	return Position.OUTSIDE;
+        } else if (distance.equals(radius)) {
+        	return Position.BELONG;
         }
 
-        if (distance > r) {
-            position = Position.OUTSIDE;
-        }
-
-        if (distance.equals(r)) {
-            position = Position.BELONG;
-        }
-
-        return position;
+        return null;
     }
 
     public Boolean isLineSegmentInside(LineSegment s) {
@@ -128,25 +111,21 @@ public final class Circle {
     }
 
     public Boolean hasLineSegment(LineSegment s) {
-        return s.distanceFromPoint(c) <= r;
+        return s.distanceFromPoint(center) <= radius;
     }
 
     public Position getPointPosition(Point p) {
-        Position position = null;
+        Double distance = center.distanceFromPoint(p);
 
-        if (c.distanceFromPoint(p) < r) {
-            position = Position.INSIDE;
+        if (distance < radius) {
+            return Position.INSIDE;
+        } else if (distance > radius) {
+        	return Position.OUTSIDE;
+        } else if (distance.equals(radius)) {
+        	return Position.BELONG;
         }
 
-        if (c.distanceFromPoint(p) > r) {
-            position = Position.OUTSIDE;
-        }
-
-        if (c.distanceFromPoint(p).equals(r)) {
-            position = Position.BELONG;
-        }
-
-        return position;
+        return null;
     }
 
     public Boolean isPointInside(Point p) {
@@ -162,7 +141,7 @@ public final class Circle {
     }
 
     public Boolean hasPoint(Point p) {
-        return c.distanceFromPoint(p) <= r;
+        return center.distanceFromPoint(p) <= radius;
     }
 
 }

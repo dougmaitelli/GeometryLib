@@ -2,7 +2,7 @@ package Geography;
 
 /**
  * Planet enum
- * @author DougM
+ * @author Douglas Maitelli
  */
 public enum Planet {
     MERCURY(2440000.0),

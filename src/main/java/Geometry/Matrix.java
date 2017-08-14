@@ -3,7 +3,7 @@ package Geometry;
 
 /**
  *
- * @author DougM
+ * @author Douglas Maitelli
  */
 public final class Matrix {
 
@@ -71,7 +71,7 @@ public final class Matrix {
     }
 
     public Double getDeterminant() {
-        double positivo = 0.0;
+        double positive = 0.0;
 
         if (rows == 2 && cols == 2) {
             return values[0][0] * values[1][1] - values[1][0] * values[0][1];
@@ -90,10 +90,10 @@ public final class Matrix {
                 mult *= values[row][j];
             }
 
-            positivo += mult;
+            positive += mult;
         }
 
-        double negativo = 0.0;
+        double negative = 0.0;
 
         for (int i = 0; i < rows; i++) {
             double mult = -1.0;
@@ -108,10 +108,10 @@ public final class Matrix {
                 mult *= values[rows - 1 - row][j];
             }
 
-            negativo += mult;
+            negative += mult;
         }
 
-        return positivo + negativo;
+        return positive + negative;
     }
 
     public Matrix transpose() {
