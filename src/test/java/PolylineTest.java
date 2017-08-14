@@ -20,7 +20,7 @@ public class PolylineTest {
 	public void testDistanceBetweenPoints() {
 		Polyline polyline = getTestPolyline();
 		
-		Assert.assertEquals(polyline.distanceBetweenPoints(polyline.getPoint(0), polyline.getPoint(2)), 8.5606, 0.0001);
+		Assert.assertEquals(8.5606, polyline.distanceBetweenPoints(polyline.getPoint(0), polyline.getPoint(2)), 0.0001);
 	}
 
 }

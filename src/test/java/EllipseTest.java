@@ -26,6 +26,6 @@ public class EllipseTest {
 		
 		Line s = new Line(0.5, 0);
 		
-		Assert.assertEquals(ellipse.getLinePosition(s), Position.INSIDE);
+		Assert.assertEquals(Position.INSIDE, ellipse.getLinePosition(s));
 	}
 }

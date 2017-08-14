@@ -13,6 +13,6 @@ public class MatrixTest {
                 {-3, 5, 14}
             });
 
-		Assert.assertEquals(matrix.getDeterminant(), 0, 0);
+		Assert.assertEquals(0, matrix.getDeterminant(), 0);
 	}
 }

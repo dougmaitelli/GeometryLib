@@ -138,7 +138,10 @@ public class Line {
         return "f(x) = " + eqStr;
     }
 
-    public Boolean equals(Line s) {
+    @Override
+    public boolean equals(Object obj) {
+    	Line s = (Line) obj;
+    	
         return a.equals(s.getA()) && b.equals(s.getB());
     }
 

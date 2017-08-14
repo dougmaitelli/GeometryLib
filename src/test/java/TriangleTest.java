@@ -11,6 +11,6 @@ public class TriangleTest {
 	public void testArea() {
 		Triangle t = new Triangle(new Point(0, 0), new Point(1, 2), new Point(3, 8));
 
-        Assert.assertEquals(t.getArea(), 1, 0);
+        Assert.assertEquals(1, t.getArea(), 0);
 	}
 }

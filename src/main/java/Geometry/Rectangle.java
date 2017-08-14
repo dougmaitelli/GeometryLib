@@ -43,7 +43,11 @@ public class Rectangle {
     }
 
     public Point getCenter() {
-        return new Point(Math.abs(b.getX() - a.getX()) / 2, Math.abs(b.getY() - a.getY()) / 2);
+        return new Point(a.getX() + Math.abs(b.getX() - a.getX()) / 2, a.getY() + Math.abs(b.getY() - a.getY()) / 2);
+    }
+    
+    public Double getArea() {
+    	return (b.getX() - a.getX()) * (b.getY() - a.getY());
     }
 
     public Position getLinePosition(Line s) {

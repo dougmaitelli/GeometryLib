@@ -10,7 +10,7 @@ public class LatLngTest {
 	public void testDistance() {
 		Double d = LatLng.distanceBetweenPoints(new LatLng(-29.687166, -51.127223), new LatLng(-29.68773, -51.127062));
 		
-		Assert.assertEquals(d, 0, 0);
+		Assert.assertEquals(0, d, 0);
 	}
 
 	@Test

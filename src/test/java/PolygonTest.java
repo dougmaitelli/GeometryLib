@@ -22,7 +22,7 @@ public class PolygonTest {
 	public void testPolygonArea() {
 		Polygon poly = getTestPolygon();
 
-        Assert.assertEquals(poly.getArea(), 8, 0);
+        Assert.assertEquals(8, poly.getArea(), 0);
 	}
 	
 	@Test
@@ -35,6 +35,6 @@ public class PolygonTest {
         
         double tt4 = poly.distanceBetweenPoints(new Point(3, 8), new Point(1, 2));
         
-        Assert.assertEquals(tt1 + tt2 + tt3, tt4, 0);
+        Assert.assertEquals(tt4, tt1 + tt2 + tt3, 0);
 	}
 }
