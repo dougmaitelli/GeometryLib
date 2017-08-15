@@ -69,7 +69,7 @@ public class Line {
     }
 
     public Boolean hasPoint(Point p) {
-        return getY(p.getX()).equals(p.getY());
+        return Math.abs(getY(p.getX()) - p.getY()) < 0.0000001;
     }
 
     public Double getX(Number y) {

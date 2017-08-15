@@ -33,8 +33,8 @@ public class PolygonTest {
         double tt2 = Point.distanceBetweenPoints(new Point(2, 10), new Point(0, 0));
         double tt3 = Point.distanceBetweenPoints(new Point(0, 0), new Point(1, 2));
         
-        double tt4 = poly.distanceBetweenPoints(new Point(3, 8), new Point(1, 2));
+        double tt = poly.distanceBetweenPoints(new Point(3, 8), new Point(1, 2));
         
-        Assert.assertEquals(tt4, tt1 + tt2 + tt3, 0);
+        Assert.assertEquals(tt1 + tt2 + tt3, tt, 0.0001);
 	}
 }

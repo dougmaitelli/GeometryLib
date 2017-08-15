@@ -2,8 +2,8 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import Geometry.Line;
+import Geometry.LineSegment;
 import Geometry.Point;
-import Geometry.Position;
 import Geometry.Rectangle;
 
 
@@ -28,11 +28,83 @@ public class RectangleTest {
 	}
 	
 	@Test
-	public void testLinePosition() {
+	public void testLinePositionInside() {
 		Rectangle rectangle = getTestRectangle();
 		
 		Line s = new Line(1, 1);
 		
-		Assert.assertEquals(Position.INSIDE, rectangle.getLinePosition(s));
+		Assert.assertTrue(rectangle.isLineInside(s));
+	}
+	
+	@Test
+	public void testLinePositionOutside() {
+		Rectangle rectangle = getTestRectangle();
+		
+		Line s = new Line(1, -10);
+		
+		Assert.assertTrue(rectangle.isLineOutside(s));
+	}
+	
+	@Test
+	public void testLinePositionBelong() {
+		Rectangle rectangle = getTestRectangle();
+		
+		Line s = new Line(1, -3);
+		
+		Assert.assertTrue(rectangle.isLineBelong(s));
+	}
+	
+	@Test
+	public void testLineSegmentPositionInside() {
+		Rectangle rectangle = getTestRectangle();
+		
+		LineSegment s = new LineSegment(new Point(0, 0), new Point(8, 10));
+		
+		Assert.assertTrue(rectangle.isLineInside(s));
+	}
+	
+	@Test
+	public void testLineSegmentPositionOutside() {
+		Rectangle rectangle = getTestRectangle();
+		
+		LineSegment s = new LineSegment(new Point(3, 0), new Point(5, 4));
+		
+		Assert.assertTrue(rectangle.isLineOutside(s));
+	}
+	
+	@Test
+	public void testLineSegmentPositionBelong() {
+		Rectangle rectangle = getTestRectangle();
+		
+		LineSegment s = new LineSegment(new Point(3, 0), new Point(10, 7));
+		
+		Assert.assertTrue(rectangle.isLineBelong(s));
+	}
+	
+	@Test
+	public void testPointPositionInside() {
+		Rectangle rectangle = getTestRectangle();
+		
+		Point p = new Point(4, 6);
+		
+		Assert.assertTrue(rectangle.isPointInside(p));
+	}
+	
+	@Test
+	public void testPointPositionOutside() {
+		Rectangle rectangle = getTestRectangle();
+		
+		Point p = new Point(10, 7);
+		
+		Assert.assertTrue(rectangle.isPointOutside(p));
+	}
+	
+	@Test
+	public void testPointPositionBelong() {
+		Rectangle rectangle = getTestRectangle();
+		
+		Point p = new Point(8, 6);
+		
+		Assert.assertTrue(rectangle.isPointBelong(p));
 	}
 }

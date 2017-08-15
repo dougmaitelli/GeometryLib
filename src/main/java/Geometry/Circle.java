@@ -61,11 +61,9 @@ public final class Circle {
             return Position.INSIDE;
         } else  if (distance > radius) {
         	return Position.OUTSIDE;
-        } else  if (distance.equals(radius)) {
+        } else {
         	return Position.BELONG;
         }
-
-        return null;
     }
 
     public Boolean isLineInside(Line s) {
@@ -91,11 +89,9 @@ public final class Circle {
             return Position.INSIDE;
         } else if (distance > radius) {
         	return Position.OUTSIDE;
-        } else if (distance.equals(radius)) {
+        } else {
         	return Position.BELONG;
         }
-
-        return null;
     }
 
     public Boolean isPointInside(Point p) {
