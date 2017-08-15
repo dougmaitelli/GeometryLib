@@ -12,11 +12,11 @@ public final class Matrix {
     private Double[][] values;
 
     public Matrix(Number[][] values) {
-        rows = values.length;
+        cols = values.length;
 
         for (int i = 0; i < rows; i++) {
             if (values[i].length > cols) {
-                cols = values[i].length;
+                rows = values[i].length;
             }
         }
 
@@ -134,7 +134,7 @@ public final class Matrix {
         Matrix m = new Matrix(rows, cols);
 
         for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < cols; i++) {
+            for (int j = 0; j < cols; j++) {
                 m.set(i, j, values[i][j] * num.doubleValue());
             }
         }
@@ -146,7 +146,7 @@ public final class Matrix {
         Matrix m2 = new Matrix(rows, cols);
 
         for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < cols; i++) {
+            for (int j = 0; j < cols; j++) {
                 m2.set(i, j, values[i][j] * m.get(i, j));
             }
         }
@@ -158,7 +158,7 @@ public final class Matrix {
         Matrix m = new Matrix(rows, cols);
 
         for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < cols; i++) {
+            for (int j = 0; j < cols; j++) {
                 m.set(i, j, values[i][j] + num.doubleValue());
             }
         }
@@ -170,7 +170,7 @@ public final class Matrix {
         Matrix m2 = new Matrix(rows, cols);
 
         for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < cols; i++) {
+            for (int j = 0; j < cols; j++) {
                 m2.set(i, j, values[i][j] + m.get(i, j));
             }
         }
@@ -182,7 +182,7 @@ public final class Matrix {
         Matrix m = new Matrix(rows, cols);
 
         for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < cols; i++) {
+            for (int j = 0; j < cols; j++) {
                 m.set(i, j, values[i][j] - num.doubleValue());
             }
         }
@@ -194,7 +194,7 @@ public final class Matrix {
         Matrix m2 = new Matrix(rows, cols);
 
         for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < cols; i++) {
+            for (int j = 0; j < cols; j++) {
                 m2.set(i, j, values[i][j] - m.get(i, j));
             }
         }
@@ -206,7 +206,7 @@ public final class Matrix {
         Matrix m = new Matrix(rows, cols);
 
         for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < cols; i++) {
+            for (int j = 0; j < cols; j++) {
                 m.set(i, j, values[i][j] / num.doubleValue());
             }
         }
@@ -218,7 +218,7 @@ public final class Matrix {
         Matrix m2 = new Matrix(rows, cols);
 
         for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < cols; i++) {
+            for (int j = 0; j < cols; j++) {
                 m2.set(i, j, values[i][j] / m.get(i, j));
             }
         }
@@ -230,7 +230,7 @@ public final class Matrix {
         Matrix m = new Matrix(rowscols, rowscols);
 
         for (int i = 0; i < rowscols; i++) {
-            for (int j = 0; j < rowscols; i++) {
+            for (int j = 0; j < rowscols; j++) {
                 if (i == j) {
                     m.set(i, j, 1);
                 } else {
@@ -240,5 +240,20 @@ public final class Matrix {
         }
 
         return m;
+    }
+    
+    @Override
+    public boolean equals(Object obj) {
+    	Matrix m = (Matrix) obj;
+    	
+    	for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+            	if (!values[i][j].equals(m.get(i, j))) {
+            		return false;
+            	}
+            }
+        }
+    	
+    	return true;
     }
 }
