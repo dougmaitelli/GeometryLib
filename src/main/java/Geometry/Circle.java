@@ -84,36 +84,6 @@ public final class Circle {
         return s.distanceFromPoint(center) <= radius;
     }
 
-    public Position getLineSegmentPosition(LineSegment s) {
-        Double distance = s.distanceFromPoint(center);
-
-        if (distance < radius) {
-        	return Position.INSIDE;
-        } else if (distance > radius) {
-        	return Position.OUTSIDE;
-        } else if (distance.equals(radius)) {
-        	return Position.BELONG;
-        }
-
-        return null;
-    }
-
-    public Boolean isLineSegmentInside(LineSegment s) {
-        return getLineSegmentPosition(s) == Position.INSIDE;
-    }
-
-    public Boolean isLineSegmentOutside(LineSegment s) {
-        return getLineSegmentPosition(s) == Position.OUTSIDE;
-    }
-
-    public Boolean isLineSegmentBelong(LineSegment s) {
-        return getLineSegmentPosition(s) == Position.BELONG;
-    }
-
-    public Boolean hasLineSegment(LineSegment s) {
-        return s.distanceFromPoint(center) <= radius;
-    }
-
     public Position getPointPosition(Point p) {
         Double distance = center.distanceFromPoint(p);
 

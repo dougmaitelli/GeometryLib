@@ -125,7 +125,21 @@ public class Line {
     }
 
     public Double distanceFromPoint(Point p) {
-        return Line.distanceBetweenLineAndPoint(this, p);
+    	return Math.abs(a * p.getX() + p.getY() * -1 + b) / Math.sqrt(Math.pow(a, 2) + 1);
+    }
+    
+    public Point getIntersectionPoint(Line line) {
+    	if (this.isParallel(line)) {
+            return null;
+        }
+
+        Double x = (line.getB() - b) / (a - line.getA());
+
+        return getPointFromX(x);
+    }
+
+    public Point getClosestPoint(Point p) {
+    	return getIntersectionPoint(getPerpendicularFromPoint(p));
     }
 
     @Override
@@ -145,36 +159,10 @@ public class Line {
         return a.equals(s.getA()) && b.equals(s.getB());
     }
 
-    public Point getIntersectionPoint(Line line) {
-        return Line.intersectionPointBetweenLines(this, line);
-    }
-
-    public Point getClosestPoint(Point p) {
-        return Line.closestPointOnLine(this, p);
-    }
-
     public static Double distanceBetweenLines(Line s1, Line s2, Number x) {
         return s1.getPointFromX(x).distanceFromPoint(s2.getPointFromX(x));
     }
-
-    public static Double distanceBetweenLineAndPoint(Line s, Point p) {
-        return (s.getA() * p.getX() + p.getY() * -1 + s.getB()) / Math.sqrt(Math.pow(s.getA(), 2) + 1);
-    }
-
-    public static Point intersectionPointBetweenLines(Line l1, Line l2) {
-        if (l1.isParallel(l2)) {
-            return null;
-        }
-
-        Double x = (l2.getB() - l1.getB()) / (l1.getA() - l2.getA());
-
-        return l1.getPointFromX(x);
-    }
-
-    public static Point closestPointOnLine(Line s, Point p) {
-        return s.getIntersectionPoint(s.getPerpendicularFromPoint(p));
-    }
-
+    
     public static Line lineFromPoint(Number a, Point p) {
         return new Line(a, a.doubleValue() * (p.getX() * -1) + p.getY());
     }

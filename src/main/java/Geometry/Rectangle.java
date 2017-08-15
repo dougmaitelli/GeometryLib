@@ -70,26 +70,6 @@ public class Rectangle {
         return isLineInside(s) || isLineBelong(s);
     }
 
-    public Position getLineSegmentPosition(LineSegment s) {
-        return getPointPosition(s.getClosestPoint(getCenter()));
-    }
-
-    public Boolean isLineSegmentInside(LineSegment s) {
-        return getLineSegmentPosition(s) == Position.INSIDE;
-    }
-
-    public Boolean isLineSegmentOutside(LineSegment s) {
-        return getLineSegmentPosition(s) == Position.OUTSIDE;
-    }
-
-    public Boolean isLineSegmentBelong(LineSegment s) {
-        return getLineSegmentPosition(s) == Position.BELONG;
-    }
-
-    public Boolean hasLineSegment(LineSegment s) {
-        return isLineSegmentInside(s) || isLineSegmentBelong(s);
-    }
-
     public Position getPointPosition(Point p) {
     	if (p.getX() > a.getX() && p.getY() > a.getY() && p.getX() < b.getX() && p.getY() < b.getY()) {
     		return Position.INSIDE;

@@ -82,26 +82,6 @@ public class Ellipse {
         return isLineInside(s) || isLineBelong(s);
     }
 
-    public Position getLineSegmentPosition(LineSegment s) {
-        return getPointPosition(s.getClosestPoint(center));
-    }
-
-    public Boolean isLineSegmentInside(LineSegment s) {
-        return getLineSegmentPosition(s) == Position.INSIDE;
-    }
-
-    public Boolean isLineSegmentOutside(LineSegment s) {
-        return getLineSegmentPosition(s) == Position.OUTSIDE;
-    }
-
-    public Boolean isLineSegmentBelong(LineSegment s) {
-        return getLineSegmentPosition(s) == Position.BELONG;
-    }
-
-    public Boolean hasLineSegment(LineSegment s) {
-        return isLineSegmentInside(s) || isLineSegmentBelong(s);
-    }
-
     public Position getPointPosition(Point p) {
         Double inequality = Math.pow(p.getX() - center.getX(), 2) / Math.pow(radiusX, 2) + Math.pow(p.getY() - center.getY(), 2) / Math.pow(radiusY, 2);
 

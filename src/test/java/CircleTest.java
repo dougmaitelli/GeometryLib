@@ -3,8 +3,8 @@ import org.junit.Test;
 
 import Geometry.Circle;
 import Geometry.Line;
+import Geometry.LineSegment;
 import Geometry.Point;
-import Geometry.Position;
 
 
 public class CircleTest {
@@ -28,11 +28,84 @@ public class CircleTest {
 	}
 	
 	@Test
-	public void testLinePosition() {
+	public void testLinePositionInside() {
 		Circle circle = getTestCircle();
 		
-		Line s = new Line(0.5, 0);
+		Line s = new Line(1, 0);
 		
-		Assert.assertEquals(Position.INSIDE, circle.getLinePosition(s));
+		Assert.assertTrue(circle.isLineInside(s));
 	}
+	
+	@Test
+	public void testLinePositionOutside() {
+		Circle circle = getTestCircle();
+		
+		Line s = new Line(1, -10);
+		
+		Assert.assertTrue(circle.isLineOutside(s));
+	}
+	
+	@Test
+	public void testLinePositionBelong() {
+		Circle circle = getTestCircle();
+		
+		Line s = new Line(0, 2);
+		
+		Assert.assertTrue(circle.isLineBelong(s));
+	}
+	
+	@Test
+	public void testLineSegmentPositionInside() {
+		Circle circle = getTestCircle();
+		
+		LineSegment s = new LineSegment(new Point(0, 4), new Point(6, 4));
+		
+		Assert.assertTrue(circle.isLineInside(s));
+	}
+	
+	@Test
+	public void testLineSegmentPositionOutside() {
+		Circle circle = getTestCircle();
+		
+		LineSegment s = new LineSegment(new Point(6, 2), new Point(10, 2));
+		
+		Assert.assertTrue(circle.isLineOutside(s));
+	}
+	
+	@Test
+	public void testLineSegmentPositionBelong() {
+		Circle circle = getTestCircle();
+		
+		LineSegment s = new LineSegment(new Point(0, 2), new Point(6, 2));
+		
+		Assert.assertTrue(circle.isLineBelong(s));
+	}
+	
+	@Test
+	public void testPointPositionInside() {
+		Circle circle = getTestCircle();
+		
+		Point p = new Point(2, 4);
+		
+		Assert.assertTrue(circle.isPointInside(p));
+	}
+	
+	@Test
+	public void testPointPositionOutside() {
+		Circle circle = getTestCircle();
+		
+		Point p = new Point(2, 8);
+		
+		Assert.assertTrue(circle.isPointOutside(p));
+	}
+	
+	@Test
+	public void testPointPositionBelong() {
+		Circle circle = getTestCircle();
+		
+		Point p = new Point(3, 2);
+		
+		Assert.assertTrue(circle.isPointBelong(p));
+	}
+	
 }

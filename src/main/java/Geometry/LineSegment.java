@@ -2,7 +2,7 @@ package Geometry;
 
 /**
  *
- * @author Douglas Maitelliaitelli
+ * @author Douglas Maitelli
  */
 public class LineSegment extends Line {
 
@@ -97,54 +97,61 @@ public class LineSegment extends Line {
 
         return new Point(x, y);
     }
-
-    public Point intersectionPoint(LineSegment ls) {
-        return LineSegment.intersectionPointBetweenLineSegments(this, ls);
-    }
-
+    
+    @Override
     public Double distanceFromPoint(Point p) {
-        return LineSegment.distanceBetweenLineSegmentAndPoint(this, p);
+        return p.distanceFromPoint(getClosestPoint(p));
     }
 
-    public Point getClosestPoint(Point p) {
-        return LineSegment.closestPointOnLineSegment(this, p);
-    }
-
-    public static Double distanceBetweenLineSegmentAndPoint(LineSegment ls, Point p) {
-        return p.distanceFromPoint(ls.getClosestPoint(p));
-    }
-
-    public static Point closestPointOnLineSegment(LineSegment ls, Point p) {
-        Line line = new Line(ls.getP1(), ls.getP2());
-
-        Line l1 = line.getPerpendicularFromPoint(ls.getP1());
-        Line l2 = line.getPerpendicularFromPoint(ls.getP2());
-
-        Double max = Math.max(l1.getY(p.getX()), l2.getY(p.getX()));
-        Double min = Math.min(l1.getY(p.getX()), l2.getY(p.getX()));
-
-        if (p.getY() >= min && p.getY() <= max) {
-            return line.getIntersectionPoint(line.getParallelFromPoint(p));
-        } else {
-            if (p.distanceFromPoint(ls.getP1()) <= p.distanceFromPoint(ls.p2)) {
-            	return ls.getP1();
-            } else {
-            	return ls.getP2();
-            }
-        }
-    }
-
-    public static Point intersectionPointBetweenLineSegments(LineSegment l1, LineSegment l2) {
-        if (l1.isParallel(l2)) {
-            return null;
-        }
-
-        Point p = l1.toLine().getIntersectionPoint(l2.toLine());
-
-        if (l1.hasPoint(p)) {
+    @Override
+    public Point getIntersectionPoint(Line ls) {
+    	Point p = super.getIntersectionPoint(ls);
+    	
+        if (p != null && ls.hasPoint(p)) {
             return p;
         }
 
         return null;
     }
+
+    @Override
+    public Point getClosestPoint(Point p) {
+        Double min;
+        Double max;
+        if (isConstant()) {
+        	min = Math.min(p1.getX(), p2.getX());
+        	max = Math.max(p1.getX(), p2.getX());
+        } else {
+	        Line l1 = getPerpendicularFromPoint(p1);
+	        Line l2 = getPerpendicularFromPoint(p2);
+	
+	        min = Math.min(l1.getX(p.getY()), l2.getX(p.getY()));
+	        max = Math.max(l1.getX(p.getY()), l2.getX(p.getY()));
+        }
+        
+        if (p.getX() < min) {
+        	return p1;
+        } else if (p.getX() > max) {
+        	return p2;
+        } else {
+        	if (isConstant()) {
+        		return new Point(p.getX(), getB());
+        	} else {
+        		return super.getClosestPoint(p);
+        	}
+        }
+    }
+    
+    @Override
+    public String toString() {
+        return super.toString() + " from " + p1.toString() + " to " + p2.toString();
+    }
+    
+    @Override
+    public boolean equals(Object obj) {
+    	LineSegment ls = (LineSegment) obj;
+    	
+        return super.equals(obj) && p1.equals(ls.getP1()) && p2.equals(ls.getP2());
+    }
+
 }

@@ -53,7 +53,7 @@ public final class Point {
 
     @Override
     public String toString() {
-        return String.format("(%.2f, %.2f)", this.getX(), this.getY());
+        return String.format("P(%.2f, %.2f)", this.getX(), this.getY());
     }
     
     @Override
