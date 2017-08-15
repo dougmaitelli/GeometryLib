@@ -12,13 +12,15 @@ public final class Matrix {
     private Double[][] values;
 
     public Matrix(Number[][] values) {
-        cols = values.length;
+        rows = values.length;
 
         for (int i = 0; i < rows; i++) {
             if (values[i].length > cols) {
-                rows = values[i].length;
+                cols = values[i].length;
             }
         }
+        
+        this.values = new Double[rows][cols];
 
         this.setValues(values);
     }
@@ -26,7 +28,17 @@ public final class Matrix {
     public Matrix(Integer rows, Integer cols) {
         this.rows = rows;
         this.cols = cols;
+        
+        this.values = new Double[rows][cols];
     }
+    
+    public Integer getRows() {
+		return rows;
+	}
+    
+    public Integer getCols() {
+		return cols;
+	}
 
     /**
      * @return the values
@@ -45,8 +57,6 @@ public final class Matrix {
             }
         }
 
-        this.values = new Double[rows][cols];
-
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
                 this.values[i][j] = values[i][j].doubleValue();
@@ -63,11 +73,11 @@ public final class Matrix {
             throw new IndexOutOfBoundsException();
         }
 
-        return values[j - 1][i - 1];
+        return values[i][j];
     }
 
     public void set(int i, int j, Number n) {
-        values[j - 1][i - 1] = n.doubleValue();
+        values[i][j] = n.doubleValue();
     }
 
     public Double getDeterminant() {
@@ -245,6 +255,10 @@ public final class Matrix {
     @Override
     public boolean equals(Object obj) {
     	Matrix m = (Matrix) obj;
+    	
+    	if (rows != m.getRows() || cols != m.getCols()) {
+    		return false;
+    	}
     	
     	for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
