@@ -129,7 +129,7 @@ public final class Matrix {
 
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
-                m.set(cols - j - 1, rows - i - 1, values[i][j]);
+                m.set(j, i, values[i][j]);
             }
         }
 
