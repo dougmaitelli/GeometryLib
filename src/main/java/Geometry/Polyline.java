@@ -41,30 +41,22 @@ public final class Polyline {
     }
     
     public Double distanceBetweenPoints(Point p1, Point p2) {
-        return inlineDistanceBetweenPoints(this, p1, p2);
-    }
+    	double distance = 0;
 
-    public Integer size() {
-        return points.size();
-    }
-
-    public static Double inlineDistanceBetweenPoints(Polyline polyline, Point p1, Point p2) {
-        Double distance = null;
-
-        for (int i = 0; i < polyline.size() - 1; i++) {
-            Point pp1 = polyline.getPoint(i);
-            Point pp2 = polyline.getPoint(i + 1);
+        for (int i = 0; i < size() - 1; i++) {
+            Point pp1 = getPoint(i);
+            Point pp2 = getPoint(i + 1);
 
             Line line = new Line(pp1, pp2);
 
-            if (distance == null && line.hasPoint(p1) && line.hasPoint(p2)) {
+            if (distance == 0 && line.hasPoint(p1) && line.hasPoint(p2)) {
                 distance = p1.distanceFromPoint(p2);
 
                 break;
             }
 
             if (line.hasPoint(p1)) {
-                if (distance == null) {
+                if (distance == 0) {
                     distance = p1.distanceFromPoint(pp2);
 
                     continue;
@@ -76,7 +68,7 @@ public final class Polyline {
             }
 
             if (line.hasPoint(p2)) {
-                if (distance == null) {
+                if (distance == 0) {
                     distance = p2.distanceFromPoint(pp2);
 
                     continue;
@@ -87,11 +79,15 @@ public final class Polyline {
                 }
             }
 
-            if (distance != null) {
+            if (distance != 0) {
                 distance += pp1.distanceFromPoint(pp2);
             }
         }
 
         return distance;
+    }
+
+    public Integer size() {
+        return points.size();
     }
 }
