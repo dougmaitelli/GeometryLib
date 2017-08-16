@@ -1,12 +1,10 @@
 import org.junit.Assert;
 import org.junit.Test;
 
-import Geometry.Circle;
 import Geometry.Ellipse;
 import Geometry.Line;
 import Geometry.LineSegment;
 import Geometry.Point;
-import Geometry.Position;
 
 
 public class EllipseTest {
@@ -30,6 +28,8 @@ public class EllipseTest {
 		Line s = new Line(1, 0);
 		
 		Assert.assertTrue(ellipse.isLineInside(s));
+		Assert.assertFalse(ellipse.isLineOutside(s));
+		Assert.assertFalse(ellipse.isLineBelong(s));
 	}
 	
 	@Test
@@ -39,6 +39,8 @@ public class EllipseTest {
 		Line s = new Line(1, -10);
 		
 		Assert.assertTrue(ellipse.isLineOutside(s));
+		Assert.assertFalse(ellipse.isLineInside(s));
+		Assert.assertFalse(ellipse.isLineBelong(s));
 	}
 	
 	@Test
@@ -48,6 +50,8 @@ public class EllipseTest {
 		Line s = new Line(0, 2);
 		
 		Assert.assertTrue(ellipse.isLineBelong(s));
+		Assert.assertFalse(ellipse.isLineInside(s));
+		Assert.assertFalse(ellipse.isLineOutside(s));
 	}
 	
 	@Test
@@ -57,6 +61,8 @@ public class EllipseTest {
 		LineSegment s = new LineSegment(new Point(0, 4), new Point(6, 4));
 		
 		Assert.assertTrue(ellipse.isLineInside(s));
+		Assert.assertFalse(ellipse.isLineOutside(s));
+		Assert.assertFalse(ellipse.isLineBelong(s));
 	}
 	
 	@Test
@@ -66,6 +72,8 @@ public class EllipseTest {
 		LineSegment s = new LineSegment(new Point(6, 2), new Point(10, 2));
 		
 		Assert.assertTrue(ellipse.isLineOutside(s));
+		Assert.assertFalse(ellipse.isLineInside(s));
+		Assert.assertFalse(ellipse.isLineBelong(s));
 	}
 	
 	@Test
@@ -75,6 +83,8 @@ public class EllipseTest {
 		LineSegment s = new LineSegment(new Point(0, 10), new Point(6, 10));
 		
 		Assert.assertTrue(ellipse.isLineBelong(s));
+		Assert.assertFalse(ellipse.isLineInside(s));
+		Assert.assertFalse(ellipse.isLineOutside(s));
 	}
 	
 	@Test
@@ -84,6 +94,8 @@ public class EllipseTest {
 		Point p = new Point(2, 4);
 		
 		Assert.assertTrue(ellipse.isPointInside(p));
+		Assert.assertFalse(ellipse.isPointOutside(p));
+		Assert.assertFalse(ellipse.isPointBelong(p));
 	}
 	
 	@Test
@@ -93,6 +105,8 @@ public class EllipseTest {
 		Point p = new Point(2, 10);
 		
 		Assert.assertTrue(ellipse.isPointOutside(p));
+		Assert.assertFalse(ellipse.isPointInside(p));
+		Assert.assertFalse(ellipse.isPointBelong(p));
 	}
 	
 	@Test
@@ -102,5 +116,7 @@ public class EllipseTest {
 		Point p = new Point(6, 5);
 		
 		Assert.assertTrue(ellipse.isPointBelong(p));
+		Assert.assertFalse(ellipse.isPointInside(p));
+		Assert.assertFalse(ellipse.isPointOutside(p));
 	}
 }

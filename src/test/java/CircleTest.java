@@ -34,6 +34,8 @@ public class CircleTest {
 		Line s = new Line(1, 0);
 		
 		Assert.assertTrue(circle.isLineInside(s));
+		Assert.assertFalse(circle.isLineOutside(s));
+		Assert.assertFalse(circle.isLineBelong(s));
 	}
 	
 	@Test
@@ -43,6 +45,8 @@ public class CircleTest {
 		Line s = new Line(1, -10);
 		
 		Assert.assertTrue(circle.isLineOutside(s));
+		Assert.assertFalse(circle.isLineInside(s));
+		Assert.assertFalse(circle.isLineBelong(s));
 	}
 	
 	@Test
@@ -52,6 +56,8 @@ public class CircleTest {
 		Line s = new Line(0, 2);
 		
 		Assert.assertTrue(circle.isLineBelong(s));
+		Assert.assertFalse(circle.isLineInside(s));
+		Assert.assertFalse(circle.isLineOutside(s));
 	}
 	
 	@Test
@@ -61,6 +67,8 @@ public class CircleTest {
 		LineSegment s = new LineSegment(new Point(0, 4), new Point(6, 4));
 		
 		Assert.assertTrue(circle.isLineInside(s));
+		Assert.assertFalse(circle.isLineOutside(s));
+		Assert.assertFalse(circle.isLineBelong(s));
 	}
 	
 	@Test
@@ -70,6 +78,8 @@ public class CircleTest {
 		LineSegment s = new LineSegment(new Point(6, 2), new Point(10, 2));
 		
 		Assert.assertTrue(circle.isLineOutside(s));
+		Assert.assertFalse(circle.isLineInside(s));
+		Assert.assertFalse(circle.isLineBelong(s));
 	}
 	
 	@Test
@@ -79,6 +89,8 @@ public class CircleTest {
 		LineSegment s = new LineSegment(new Point(0, 2), new Point(6, 2));
 		
 		Assert.assertTrue(circle.isLineBelong(s));
+		Assert.assertFalse(circle.isLineInside(s));
+		Assert.assertFalse(circle.isLineOutside(s));
 	}
 	
 	@Test
@@ -88,6 +100,8 @@ public class CircleTest {
 		Point p = new Point(2, 4);
 		
 		Assert.assertTrue(circle.isPointInside(p));
+		Assert.assertFalse(circle.isPointOutside(p));
+		Assert.assertFalse(circle.isPointBelong(p));
 	}
 	
 	@Test
@@ -97,6 +111,8 @@ public class CircleTest {
 		Point p = new Point(2, 8);
 		
 		Assert.assertTrue(circle.isPointOutside(p));
+		Assert.assertFalse(circle.isPointInside(p));
+		Assert.assertFalse(circle.isPointBelong(p));
 	}
 	
 	@Test
@@ -106,6 +122,8 @@ public class CircleTest {
 		Point p = new Point(3, 2);
 		
 		Assert.assertTrue(circle.isPointBelong(p));
+		Assert.assertFalse(circle.isPointInside(p));
+		Assert.assertFalse(circle.isPointOutside(p));
 	}
 	
 }

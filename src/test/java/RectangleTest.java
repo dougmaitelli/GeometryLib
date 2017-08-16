@@ -34,6 +34,8 @@ public class RectangleTest {
 		Line s = new Line(1, 1);
 		
 		Assert.assertTrue(rectangle.isLineInside(s));
+		Assert.assertFalse(rectangle.isLineOutside(s));
+		Assert.assertFalse(rectangle.isLineBelong(s));
 	}
 	
 	@Test
@@ -43,6 +45,8 @@ public class RectangleTest {
 		Line s = new Line(1, -10);
 		
 		Assert.assertTrue(rectangle.isLineOutside(s));
+		Assert.assertFalse(rectangle.isLineInside(s));
+		Assert.assertFalse(rectangle.isLineBelong(s));
 	}
 	
 	@Test
@@ -52,6 +56,8 @@ public class RectangleTest {
 		Line s = new Line(1, -3);
 		
 		Assert.assertTrue(rectangle.isLineBelong(s));
+		Assert.assertFalse(rectangle.isLineInside(s));
+		Assert.assertFalse(rectangle.isLineOutside(s));
 	}
 	
 	@Test
@@ -61,6 +67,8 @@ public class RectangleTest {
 		LineSegment s = new LineSegment(new Point(0, 0), new Point(8, 10));
 		
 		Assert.assertTrue(rectangle.isLineInside(s));
+		Assert.assertFalse(rectangle.isLineOutside(s));
+		Assert.assertFalse(rectangle.isLineBelong(s));
 	}
 	
 	@Test
@@ -70,6 +78,8 @@ public class RectangleTest {
 		LineSegment s = new LineSegment(new Point(3, 0), new Point(5, 4));
 		
 		Assert.assertTrue(rectangle.isLineOutside(s));
+		Assert.assertFalse(rectangle.isLineInside(s));
+		Assert.assertFalse(rectangle.isLineBelong(s));
 	}
 	
 	@Test
@@ -79,6 +89,8 @@ public class RectangleTest {
 		LineSegment s = new LineSegment(new Point(3, 0), new Point(10, 7));
 		
 		Assert.assertTrue(rectangle.isLineBelong(s));
+		Assert.assertFalse(rectangle.isLineInside(s));
+		Assert.assertFalse(rectangle.isLineOutside(s));
 	}
 	
 	@Test
@@ -88,6 +100,8 @@ public class RectangleTest {
 		Point p = new Point(4, 6);
 		
 		Assert.assertTrue(rectangle.isPointInside(p));
+		Assert.assertFalse(rectangle.isPointOutside(p));
+		Assert.assertFalse(rectangle.isPointBelong(p));
 	}
 	
 	@Test
@@ -97,6 +111,8 @@ public class RectangleTest {
 		Point p = new Point(10, 7);
 		
 		Assert.assertTrue(rectangle.isPointOutside(p));
+		Assert.assertFalse(rectangle.isPointInside(p));
+		Assert.assertFalse(rectangle.isPointBelong(p));
 	}
 	
 	@Test
@@ -106,5 +122,7 @@ public class RectangleTest {
 		Point p = new Point(8, 6);
 		
 		Assert.assertTrue(rectangle.isPointBelong(p));
+		Assert.assertFalse(rectangle.isPointInside(p));
+		Assert.assertFalse(rectangle.isPointOutside(p));
 	}
 }
