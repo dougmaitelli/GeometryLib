@@ -37,4 +37,37 @@ public class PolygonTest {
         
         Assert.assertEquals(tt1 + tt2 + tt3, tt, 0.0001);
 	}
+	
+	@Test
+	public void testPointInside() {
+		Polygon poly = getTestPolygon();
+		
+		Point p = new Point(2, 8);
+		
+		Assert.assertTrue(poly.isPointInside(p));
+		Assert.assertFalse(poly.isPointOutside(p));
+		Assert.assertFalse(poly.isPointBelong(p));
+	}
+	
+	@Test
+	public void testPointOutside() {
+		Polygon poly = getTestPolygon();
+		
+		Point p = new Point(4, 6);
+		
+		Assert.assertTrue(poly.isPointOutside(p));
+		Assert.assertFalse(poly.isPointInside(p));
+		Assert.assertFalse(poly.isPointBelong(p));
+	}
+	
+	@Test
+	public void testPointBelong() {
+		Polygon poly = getTestPolygon();
+		
+		Point p = new Point(0.5, 1);
+		
+		Assert.assertTrue(poly.isPointBelong(p));
+		Assert.assertFalse(poly.isPointInside(p));
+		Assert.assertFalse(poly.isPointOutside(p));
+	}
 }

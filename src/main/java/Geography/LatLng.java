@@ -93,9 +93,9 @@ public final class LatLng {
     /**
      * Compares two LatLng
      * @param p LatLng to compare
-     * @return Boolean
+     * @return boolean
      */
-    public Boolean equals(LatLng p) {
+    public boolean equals(LatLng p) {
         return getLatitude().equals(p.getLatitude()) && getLongitude().equals(p.getLongitude());
     }
 

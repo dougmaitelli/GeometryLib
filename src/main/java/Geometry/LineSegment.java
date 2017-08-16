@@ -48,14 +48,14 @@ public class LineSegment extends Line {
     }
 
     @Override
-    public Boolean hasPoint(Point p) {
+    public boolean hasPoint(Point p) {
         Double y = getY(p.getX());
 
         if (y == null) {
-            return null;
+            return false;
         }
 
-        return y.equals(p.getY());
+        return Math.abs(y - p.getY()) < 0.0000001;
     }
 
     @Override

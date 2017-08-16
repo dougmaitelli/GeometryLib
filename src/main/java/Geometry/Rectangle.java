@@ -54,19 +54,19 @@ public class Rectangle {
         return getPointPosition(s.getClosestPoint(getCenter()));
     }
 
-    public Boolean isLineInside(Line s) {
+    public boolean isLineInside(Line s) {
         return this.getLinePosition(s) == Position.INSIDE;
     }
 
-    public Boolean isLineOutside(Line s) {
+    public boolean isLineOutside(Line s) {
         return this.getLinePosition(s) == Position.OUTSIDE;
     }
 
-    public Boolean isLineBelong(Line s) {
+    public boolean isLineBelong(Line s) {
         return this.getLinePosition(s) == Position.BELONG;
     }
 
-    public Boolean hasLine(Line s) {
+    public boolean hasLine(Line s) {
         return isLineInside(s) || isLineBelong(s);
     }
 
@@ -80,19 +80,19 @@ public class Rectangle {
     	}
     }
 
-    public Boolean isPointInside(Point p) {
+    public boolean isPointInside(Point p) {
         return getPointPosition(p) == Position.INSIDE;
     }
 
-    public Boolean isPointOutside(Point p) {
+    public boolean isPointOutside(Point p) {
         return getPointPosition(p) == Position.OUTSIDE;
     }
 
-    public Boolean isPointBelong(Point p) {
+    public boolean isPointBelong(Point p) {
         return getPointPosition(p) == Position.BELONG;
     }
 
-    public Boolean hasPoint(Point p) {
+    public boolean hasPoint(Point p) {
     	 return isPointOutside(p) || isPointBelong(p);
     }
 

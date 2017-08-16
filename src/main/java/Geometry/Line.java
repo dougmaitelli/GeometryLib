@@ -68,7 +68,7 @@ public class Line {
         b = s.getB();
     }
 
-    public Boolean hasPoint(Point p) {
+    public boolean hasPoint(Point p) {
         return Math.abs(getY(p.getX()) - p.getY()) < 0.0000001;
     }
 
@@ -92,15 +92,15 @@ public class Line {
         return Math.pow(a, -1) * -1;
     }
 
-    public Boolean isAscendant() {
+    public boolean isAscendant() {
         return a > 0;
     }
 
-    public Boolean isDescendant() {
+    public boolean isDescendant() {
         return a < 0;
     }
 
-    public Boolean isConstant() {
+    public boolean isConstant() {
         return a == 0;
     }
 
@@ -116,11 +116,11 @@ public class Line {
         return new Line(getInverseAngularCoeficient(), p);
     }
 
-    public Boolean isPerpendicular(Line s) {
+    public boolean isPerpendicular(Line s) {
         return getInverseAngularCoeficient().equals(s.getA());
     }
 
-    public Boolean isConcurrent(Line s) {
+    public boolean isConcurrent(Line s) {
         return !this.isParallel(s) && !this.isPerpendicular(s);
     }
 
