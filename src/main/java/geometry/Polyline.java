@@ -1,6 +1,5 @@
 package geometry;
 
-
 import java.util.ArrayList;
 
 /**

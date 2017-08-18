@@ -95,7 +95,9 @@ public final class LatLng {
      * @param p LatLng to compare
      * @return boolean
      */
-    public boolean equals(LatLng p) {
+    @Override
+    public boolean equals(Object obj) {
+        LatLng p = (LatLng) obj;
         return getLatitude().equals(p.getLatitude()) && getLongitude().equals(p.getLongitude());
     }
 
