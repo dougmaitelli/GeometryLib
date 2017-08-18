@@ -1,8 +1,8 @@
 import org.junit.Assert;
 import org.junit.Test;
 
-import Geometry.Point;
-import Geometry.Polyline;
+import geometry.Point;
+import geometry.Polyline;
 
 
 public class PolylineTest {

@@ -1,8 +1,8 @@
 import org.junit.Assert;
 import org.junit.Test;
 
-import Geometry.Point;
-import Geometry.Triangle;
+import geometry.Point;
+import geometry.Triangle;
 
 
 public class TriangleTest {

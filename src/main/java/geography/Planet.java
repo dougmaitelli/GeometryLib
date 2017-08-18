@@ -1,4 +1,4 @@
-package Geography;
+package geography;
 
 /**
  * Planet enum

@@ -1,10 +1,10 @@
 import org.junit.Assert;
 import org.junit.Test;
 
-import Geometry.Ellipse;
-import Geometry.Line;
-import Geometry.LineSegment;
-import Geometry.Point;
+import geometry.Ellipse;
+import geometry.Line;
+import geometry.LineSegment;
+import geometry.Point;
 
 
 public class EllipseTest {

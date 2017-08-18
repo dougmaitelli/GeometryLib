@@ -1,10 +1,10 @@
 import org.junit.Assert;
 import org.junit.Test;
 
-import Geometry.Line;
-import Geometry.LineSegment;
-import Geometry.Point;
-import Geometry.Rectangle;
+import geometry.Line;
+import geometry.LineSegment;
+import geometry.Point;
+import geometry.Rectangle;
 
 
 public class RectangleTest {

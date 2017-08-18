@@ -1,10 +1,10 @@
 import org.junit.Assert;
 import org.junit.Test;
 
-import Geometry.Circle;
-import Geometry.Line;
-import Geometry.LineSegment;
-import Geometry.Point;
+import geometry.Circle;
+import geometry.Line;
+import geometry.LineSegment;
+import geometry.Point;
 
 
 public class CircleTest {

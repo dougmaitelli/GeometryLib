@@ -1,8 +1,8 @@
 import org.junit.Assert;
 import org.junit.Test;
 
-import Geography.LatLng;
-import Geometry.Point;
+import geography.LatLng;
+import geometry.Point;
 
 
 public class LatLngTest {

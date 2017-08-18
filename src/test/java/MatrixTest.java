@@ -1,7 +1,7 @@
 import org.junit.Assert;
 import org.junit.Test;
 
-import Geometry.Matrix;
+import geometry.Matrix;
 
 
 public class MatrixTest {

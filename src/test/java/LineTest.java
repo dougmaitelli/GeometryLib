@@ -1,8 +1,8 @@
 import org.junit.Assert;
 import org.junit.Test;
 
-import Geometry.Line;
-import Geometry.Point;
+import geometry.Line;
+import geometry.Point;
 
 
 public class LineTest {

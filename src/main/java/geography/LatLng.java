@@ -1,6 +1,6 @@
-package Geography;
+package geography;
 
-import Geometry.Point;
+import geometry.Point;
 
 /**
  * LatLng class

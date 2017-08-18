@@ -1,8 +1,8 @@
 import org.junit.Assert;
 import org.junit.Test;
 
-import Geometry.Point;
-import Geometry.Polygon;
+import geometry.Point;
+import geometry.Polygon;
 
 
 public class PolygonTest {
