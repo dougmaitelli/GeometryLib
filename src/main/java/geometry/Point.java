@@ -55,12 +55,12 @@ public final class Point {
     public String toString() {
         return String.format("P(%.2f, %.2f)", this.getX(), this.getY());
     }
-    
+
     @Override
     public boolean equals(Object obj) {
-    	Point p = (Point) obj;
-    	
-    	return this.getX().equals(p.getX()) && this.getY().equals(p.getY());
+        Point p = (Point) obj;
+
+        return this.getX().equals(p.getX()) && this.getY().equals(p.getY());
     }
 
     public static Double distanceBetweenPoints(Point p1, Point p2) {

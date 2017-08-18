@@ -19,7 +19,7 @@ public final class Matrix {
                 cols = values[i].length;
             }
         }
-        
+
         this.values = new Double[rows][cols];
 
         this.setValues(values);
@@ -28,17 +28,17 @@ public final class Matrix {
     public Matrix(Integer rows, Integer cols) {
         this.rows = rows;
         this.cols = cols;
-        
+
         this.values = new Double[rows][cols];
     }
-    
+
     public Integer getRows() {
-		return rows;
-	}
-    
+        return rows;
+    }
+
     public Integer getCols() {
-		return cols;
-	}
+        return cols;
+    }
 
     /**
      * @return the values
@@ -251,23 +251,23 @@ public final class Matrix {
 
         return m;
     }
-    
+
     @Override
     public boolean equals(Object obj) {
-    	Matrix m = (Matrix) obj;
-    	
-    	if (rows != m.getRows() || cols != m.getCols()) {
-    		return false;
-    	}
-    	
-    	for (int i = 0; i < rows; i++) {
+        Matrix m = (Matrix) obj;
+
+        if (rows != m.getRows() || cols != m.getCols()) {
+            return false;
+        }
+
+        for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
-            	if (!values[i][j].equals(m.get(i, j))) {
-            		return false;
-            	}
+                if (!values[i][j].equals(m.get(i, j))) {
+                    return false;
+                }
             }
         }
-    	
-    	return true;
+
+        return true;
     }
 }

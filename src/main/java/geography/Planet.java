@@ -2,6 +2,7 @@ package geography;
 
 /**
  * Planet enum
+ * 
  * @author Douglas Maitelli
  */
 public enum Planet {
@@ -23,6 +24,7 @@ public enum Planet {
 
     /**
      * Creates a new Planet from the radius
+     * 
      * @param radius
      */
     Planet(Double radius) {
@@ -31,6 +33,7 @@ public enum Planet {
 
     /**
      * Gets the Planet radius
+     * 
      * @return Double
      */
     public Double getRadius() {

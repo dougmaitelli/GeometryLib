@@ -39,9 +39,9 @@ public final class Polyline {
     public void add(Point p) {
         this.getPoints().add(p);
     }
-    
+
     public Double distanceBetweenPoints(Point p1, Point p2) {
-    	double distance = 0;
+        double distance = 0;
 
         for (int i = 0; i < size() - 1; i++) {
             Point pp1 = getPoint(i);

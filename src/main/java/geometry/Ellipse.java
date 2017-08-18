@@ -6,16 +6,16 @@ package geometry;
  */
 public class Ellipse {
 
-	private Point center;
+    private Point center;
     private Double radiusX;
     private Double radiusY;
-    
+
     public Ellipse(Point center, Number radiusX, Number radiusY) {
-    	this.center = center;
+        this.center = center;
         this.radiusX = radiusX.doubleValue();
         this.radiusY = radiusY.doubleValue();
-	}
-    
+    }
+
     /**
      * @return the center
      */
@@ -43,7 +43,7 @@ public class Ellipse {
     public void setRadiusX(Number radiusX) {
         this.radiusX = radiusX.doubleValue();
     }
-    
+
     /**
      * @return the radiusY
      */
@@ -57,13 +57,13 @@ public class Ellipse {
     public void setRadiusY(Number radiusY) {
         this.radiusY = radiusY.doubleValue();
     }
-    
+
     public Double getArea() {
         return Math.PI * radiusX * radiusY;
     }
 
     public Position getLinePosition(Line s) {
-    	return getPointPosition(s.getClosestPoint(center));
+        return getPointPosition(s.getClosestPoint(center));
     }
 
     public boolean isLineInside(Line s) {
@@ -88,9 +88,9 @@ public class Ellipse {
         if (inequality < 1) {
             return Position.INSIDE;
         } else if (inequality > 1) {
-        	return Position.OUTSIDE;
+            return Position.OUTSIDE;
         } else {
-        	return Position.BELONG;
+            return Position.BELONG;
         }
     }
 
@@ -109,5 +109,5 @@ public class Ellipse {
     public boolean hasPoint(Point p) {
         return isPointInside(p) || isPointBelong(p);
     }
-	
+
 }

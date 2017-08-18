@@ -22,7 +22,8 @@ public final class Circle {
     }
 
     /**
-     * @param center the center to set
+     * @param center
+     *            the center to set
      */
     public void setC(Point center) {
         this.center = center;
@@ -36,7 +37,8 @@ public final class Circle {
     }
 
     /**
-     * @param radius the radius to set
+     * @param radius
+     *            the radius to set
      */
     public void setRadius(Number radius) {
         this.radius = radius.doubleValue();
@@ -59,10 +61,10 @@ public final class Circle {
 
         if (distance < radius) {
             return Position.INSIDE;
-        } else  if (distance > radius) {
-        	return Position.OUTSIDE;
+        } else if (distance > radius) {
+            return Position.OUTSIDE;
         } else {
-        	return Position.BELONG;
+            return Position.BELONG;
         }
     }
 
@@ -88,9 +90,9 @@ public final class Circle {
         if (distance < radius) {
             return Position.INSIDE;
         } else if (distance > radius) {
-        	return Position.OUTSIDE;
+            return Position.OUTSIDE;
         } else {
-        	return Position.BELONG;
+            return Position.BELONG;
         }
     }
 

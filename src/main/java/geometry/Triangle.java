@@ -63,23 +63,23 @@ public final class Triangle {
     public Double getArea() {
         return Math.abs(toMatrix().getDeterminant()) / 2;
     }
-    
+
     public Polygon toPolygon() {
         ArrayList<Point> list = new ArrayList<Point>();
         list.add(a);
         list.add(b);
         list.add(c);
-        
+
         return new Polygon(list);
     }
 
     public Matrix toMatrix() {
         Matrix matrix = new Matrix(new Double[][]{
-                    {a.getX(), a.getY()},
-                    {b.getX(), b.getY()},
-                    {c.getX(), c.getY()}
-                });
-        
+            {a.getX(), a.getY()},
+            {b.getX(), b.getY()},
+            {c.getX(), c.getY()}
+        });
+
         return matrix;
     }
 

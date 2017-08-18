@@ -49,14 +49,14 @@ public class Line {
     public void setB(Number b) {
         this.b = b.doubleValue();
     }
-    
+
     public Double getAngle() {
         return a * (double) 90;
     }
 
     public final void fromPoint(Number a, Point p) {
         Line s = lineFromPoint(a, p);
-        
+
         this.a = s.getA();
         b = s.getB();
     }
@@ -125,11 +125,11 @@ public class Line {
     }
 
     public Double distanceFromPoint(Point p) {
-    	return Math.abs(a * p.getX() + p.getY() * -1 + b) / Math.sqrt(Math.pow(a, 2) + 1);
+        return Math.abs(a * p.getX() + p.getY() * -1 + b) / Math.sqrt(Math.pow(a, 2) + 1);
     }
-    
+
     public Point getIntersectionPoint(Line line) {
-    	if (this.isParallel(line)) {
+        if (this.isParallel(line)) {
             return null;
         }
 
@@ -139,41 +139,41 @@ public class Line {
     }
 
     public Point getClosestPoint(Point p) {
-    	return getIntersectionPoint(getPerpendicularFromPoint(p));
+        return getIntersectionPoint(getPerpendicularFromPoint(p));
     }
 
     @Override
     public String toString() {
-    	StringBuilder eqStr = new StringBuilder("f(x) = ");
-    	
-    	if (a != 0) {
-    		eqStr.append(a).append("x");
-    		
-    		if (b != 0) {
-    			eqStr.append(" ");
-    		}
-    	}
-    	
-    	if (b < 0 || a == 0 && b == 0) {
-    		eqStr.append(b);
-    	} else if (b > 0) {
-    		eqStr.append("+ ").append(b);
-    	}
-    	
+        StringBuilder eqStr = new StringBuilder("f(x) = ");
+
+        if (a != 0) {
+            eqStr.append(a).append("x");
+
+            if (b != 0) {
+                eqStr.append(" ");
+            }
+        }
+
+        if (b < 0 || a == 0 && b == 0) {
+            eqStr.append(b);
+        } else if (b > 0) {
+            eqStr.append("+ ").append(b);
+        }
+
         return eqStr.toString();
     }
 
     @Override
     public boolean equals(Object obj) {
-    	Line s = (Line) obj;
-    	
+        Line s = (Line) obj;
+
         return a.equals(s.getA()) && b.equals(s.getB());
     }
 
     public static Double distanceBetweenLines(Line s1, Line s2, Number x) {
         return s1.getPointFromX(x).distanceFromPoint(s2.getPointFromX(x));
     }
-    
+
     public static Line lineFromPoint(Number a, Point p) {
         return new Line(a, a.doubleValue() * (p.getX() * -1) + p.getY());
     }

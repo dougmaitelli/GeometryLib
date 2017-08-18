@@ -60,7 +60,7 @@ public final class Polygon {
     }
 
     public Double distanceBetweenPoints(Point p1, Point p2) {
-    	Double distance = null;
+        Double distance = null;
 
         for (int i = 0; i < size() * 2 - 1; i++) {
             Point pp1 = getPoint(i >= size() ? i - size() : i);
@@ -99,7 +99,7 @@ public final class Polygon {
     }
 
     public Point getClosestPoint(Point p) {
-    	Double distance = Double.MAX_VALUE;
+        Double distance = Double.MAX_VALUE;
 
         Point cp = null;
 

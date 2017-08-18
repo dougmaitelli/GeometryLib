@@ -97,7 +97,7 @@ public class LineSegment extends Line {
 
         return new Point(x, y);
     }
-    
+
     @Override
     public Double distanceFromPoint(Point p) {
         return p.distanceFromPoint(getClosestPoint(p));
@@ -105,8 +105,8 @@ public class LineSegment extends Line {
 
     @Override
     public Point getIntersectionPoint(Line ls) {
-    	Point p = super.getIntersectionPoint(ls);
-    	
+        Point p = super.getIntersectionPoint(ls);
+
         if (p != null && ls.hasPoint(p)) {
             return p;
         }
@@ -119,38 +119,38 @@ public class LineSegment extends Line {
         Double min;
         Double max;
         if (isConstant()) {
-        	min = Math.min(p1.getX(), p2.getX());
-        	max = Math.max(p1.getX(), p2.getX());
+            min = Math.min(p1.getX(), p2.getX());
+            max = Math.max(p1.getX(), p2.getX());
         } else {
-	        Line l1 = getPerpendicularFromPoint(p1);
-	        Line l2 = getPerpendicularFromPoint(p2);
-	
-	        min = Math.min(l1.getX(p.getY()), l2.getX(p.getY()));
-	        max = Math.max(l1.getX(p.getY()), l2.getX(p.getY()));
+            Line l1 = getPerpendicularFromPoint(p1);
+            Line l2 = getPerpendicularFromPoint(p2);
+
+            min = Math.min(l1.getX(p.getY()), l2.getX(p.getY()));
+            max = Math.max(l1.getX(p.getY()), l2.getX(p.getY()));
         }
-        
+
         if (p.getX() < min) {
-        	return p1;
+            return p1;
         } else if (p.getX() > max) {
-        	return p2;
+            return p2;
         } else {
-        	if (isConstant()) {
-        		return new Point(p.getX(), getB());
-        	} else {
-        		return super.getClosestPoint(p);
-        	}
+            if (isConstant()) {
+                return new Point(p.getX(), getB());
+            } else {
+                return super.getClosestPoint(p);
+            }
         }
     }
-    
+
     @Override
     public String toString() {
         return super.toString() + " from " + p1.toString() + " to " + p2.toString();
     }
-    
+
     @Override
     public boolean equals(Object obj) {
-    	LineSegment ls = (LineSegment) obj;
-    	
+        LineSegment ls = (LineSegment) obj;
+
         return super.equals(obj) && p1.equals(ls.getP1()) && p2.equals(ls.getP2());
     }
 

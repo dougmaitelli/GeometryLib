@@ -45,9 +45,9 @@ public class Rectangle {
     public Point getCenter() {
         return new Point(a.getX() + Math.abs(b.getX() - a.getX()) / 2, a.getY() + Math.abs(b.getY() - a.getY()) / 2);
     }
-    
+
     public Double getArea() {
-    	return (b.getX() - a.getX()) * (b.getY() - a.getY());
+        return (b.getX() - a.getX()) * (b.getY() - a.getY());
     }
 
     public Position getLinePosition(Line s) {
@@ -71,13 +71,13 @@ public class Rectangle {
     }
 
     public Position getPointPosition(Point p) {
-    	if (p.getX() > a.getX() && p.getY() > a.getY() && p.getX() < b.getX() && p.getY() < b.getY()) {
-    		return Position.INSIDE;
-    	} else if (p.getX() < a.getX() || p.getY() < a.getY() || p.getX() > b.getX() || p.getY() > b.getY()) {
-    		return Position.OUTSIDE;
-    	} else {
-    		return Position.BELONG;
-    	}
+        if (p.getX() > a.getX() && p.getY() > a.getY() && p.getX() < b.getX() && p.getY() < b.getY()) {
+            return Position.INSIDE;
+        } else if (p.getX() < a.getX() || p.getY() < a.getY() || p.getX() > b.getX() || p.getY() > b.getY()) {
+            return Position.OUTSIDE;
+        } else {
+            return Position.BELONG;
+        }
     }
 
     public boolean isPointInside(Point p) {
@@ -93,7 +93,7 @@ public class Rectangle {
     }
 
     public boolean hasPoint(Point p) {
-    	 return isPointOutside(p) || isPointBelong(p);
+        return isPointOutside(p) || isPointBelong(p);
     }
 
 }
