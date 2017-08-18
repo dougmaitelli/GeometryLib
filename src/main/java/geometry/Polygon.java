@@ -69,11 +69,9 @@ public final class Polygon {
             Line line = new Line(pp1, pp2);
 
             if (distance == null && line.hasPoint(p1) && line.hasPoint(p2)) {
-                if (pp1.distanceFromPoint(p1) <= pp1.distanceFromPoint(p2)) {
-                    distance = p1.distanceFromPoint(p2);
+                distance = p1.distanceFromPoint(p2);
 
-                    break;
-                }
+                break;
             }
 
             if (distance == null && line.hasPoint(p1)) {

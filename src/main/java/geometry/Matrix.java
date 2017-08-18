@@ -7,8 +7,8 @@ package geometry;
  */
 public final class Matrix {
 
-    private Integer rows = 0;
-    private Integer cols = 0;
+    private int rows;
+    private int cols;
     private Double[][] values;
 
     public Matrix(Number[][] values) {

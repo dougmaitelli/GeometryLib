@@ -144,12 +144,23 @@ public class Line {
 
     @Override
     public String toString() {
-        String aStr = a != 0 ? a + "x" : "";
-        String bStr = b != 0 ? (b < 0 ? (Double)(b * -1) : b).toString() : "";
-
-        String eqStr = !aStr.isEmpty() && !bStr.isEmpty() ? aStr + (b > 0 ? " + " : " - ") + bStr : aStr + bStr;
-        eqStr = eqStr.equals("") ? "0" : eqStr;
-        return "f(x) = " + eqStr;
+    	StringBuilder eqStr = new StringBuilder("f(x) = ");
+    	
+    	if (a != 0) {
+    		eqStr.append(a).append("x");
+    		
+    		if (b != 0) {
+    			eqStr.append(" ");
+    		}
+    	}
+    	
+    	if (b < 0 || a == 0 && b == 0) {
+    		eqStr.append(b);
+    	} else if (b > 0) {
+    		eqStr.append("+ ").append(b);
+    	}
+    	
+        return eqStr.toString();
     }
 
     @Override
