@@ -1,12 +1,13 @@
 package geometry;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author Douglas Maitelli
  */
-public final class Polyline {
+public class Polyline {
 
     private ArrayList<Point> points = new ArrayList<Point>();
 
@@ -39,54 +40,69 @@ public final class Polyline {
         this.getPoints().add(p);
     }
 
-    public Double distanceBetweenPoints(Point p1, Point p2) {
+    public int size() {
+        return points.size();
+    }
+
+    public double getTotalLength() {
         double distance = 0;
 
-        for (int i = 0; i < size() - 1; i++) {
-            Point pp1 = getPoint(i);
-            Point pp2 = getPoint(i + 1);
-
-            Line line = new Line(pp1, pp2);
-
-            if (distance == 0 && line.hasPoint(p1) && line.hasPoint(p2)) {
-                distance = p1.distanceFromPoint(p2);
-
-                break;
-            }
-
-            if (line.hasPoint(p1)) {
-                if (distance == 0) {
-                    distance = p1.distanceFromPoint(pp2);
-
-                    continue;
-                } else {
-                    distance += pp1.distanceFromPoint(p1);
-
-                    break;
-                }
-            }
-
-            if (line.hasPoint(p2)) {
-                if (distance == 0) {
-                    distance = p2.distanceFromPoint(pp2);
-
-                    continue;
-                } else {
-                    distance += pp1.distanceFromPoint(p2);
-
-                    break;
-                }
-            }
-
-            if (distance != 0) {
-                distance += pp1.distanceFromPoint(pp2);
-            }
+        for (LineSegment ls : getLineSegments()) {
+            distance += ls.getTotalLength();
         }
 
         return distance;
     }
 
-    public Integer size() {
-        return points.size();
+    public List<LineSegment> getLineSegments() {
+        List<LineSegment> lines = new ArrayList<>();
+
+        for (int i = 0; i < size() - 1; i++) {
+            Point pp1 = getPoint(i);
+            Point pp2 = getPoint(i + 1);
+
+            lines.add(new LineSegment(pp1, pp2));
+        }
+
+        return lines;
     }
+
+    public double distanceFromStart(Point p) {
+        double distance = 0;
+
+        for (LineSegment ls : getLineSegments()) {
+            if (ls.hasPoint(p)) {
+                distance += ls.getP1().distanceFromPoint(p);
+
+                break;
+            }
+
+            distance += ls.getP1().distanceFromPoint(ls.getP2());
+        }
+
+        return distance;
+    }
+
+    public double distanceBetweenPoints(Point p1, Point p2) {
+        return Math.abs(distanceFromStart(p1) - distanceFromStart(p2));
+    }
+
+    public Point getClosestPoint(Point p) {
+        Double distance = Double.MAX_VALUE;
+
+        Point cp = null;
+
+        for (LineSegment ls : getLineSegments()) {
+            Double d = ls.distanceFromPoint(p);
+
+            if (d < distance) {
+                distance = d;
+
+                cp = ls.getClosestPoint(p);
+            }
+        }
+
+        return cp;
+    }
+
 }

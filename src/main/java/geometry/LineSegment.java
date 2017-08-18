@@ -43,6 +43,10 @@ public class LineSegment extends Line {
         this.p2 = p2;
     }
 
+    public double getTotalLength() {
+        return p1.distanceFromPoint(p2);
+    }
+
     public Line toLine() {
         return new Line(p1, p2);
     }

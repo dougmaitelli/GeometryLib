@@ -31,13 +31,16 @@ public class PolygonTest {
     public void testPerimeter() {
         Polygon poly = getTestPolygon();
 
-        double tt1 = Point.distanceBetweenPoints(new Point(3, 8), new Point(2, 10));
-        double tt2 = Point.distanceBetweenPoints(new Point(2, 10), new Point(0, 0));
-        double tt3 = Point.distanceBetweenPoints(new Point(0, 0), new Point(1, 2));
+        Assert.assertEquals(20.9947, poly.getTotalLength(), 0.0001);
+    }
 
-        double tt = poly.distanceBetweenPoints(new Point(3, 8), new Point(1, 2));
+    @Test
+    public void testDistanceBetweenPoints() {
+        Polygon poly = getTestPolygon();
 
-        Assert.assertEquals(tt1 + tt2 + tt3, tt, 0.0001);
+        double tt = poly.distanceBetweenPoints(poly.getPoint(2), poly.getPoint(1));
+
+        Assert.assertEquals(6.3245, tt, 0.0001);
     }
 
     @Test

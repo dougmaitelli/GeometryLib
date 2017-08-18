@@ -136,7 +136,7 @@ public final class Matrix {
         return m;
     }
 
-    public Boolean isSimetric() {
+    public boolean isSimetric() {
         return rows == cols;
     }
 
